@@ -171,10 +171,17 @@ h3 {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid transparent;
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
+    box-shadow: var(--shadow-md);
 }
 
 .nav-container {
@@ -191,12 +198,22 @@ h3 {
     font-size: 1.5rem;
     font-weight: 700;
     font-family: var(--font-serif);
+    color: white;
+    transition: color 0.4s ease;
+}
+
+.navbar.scrolled .logo {
     color: var(--primary-color);
 }
 
 .logo i {
-    color: var(--accent-color);
+    color: var(--accent-light);
     font-size: 1.8rem;
+    transition: color 0.4s ease;
+}
+
+.navbar.scrolled .logo i {
+    color: var(--accent-color);
 }
 
 .nav-links {
@@ -207,8 +224,13 @@ h3 {
 
 .nav-links a:not(.btn) {
     font-weight: 500;
-    color: var(--text-main);
+    color: rgba(255, 255, 255, 0.9);
     position: relative;
+    transition: color 0.4s ease;
+}
+
+.navbar.scrolled .nav-links a:not(.btn) {
+    color: var(--text-main);
 }
 
 .nav-links a:not(.btn)::after {
@@ -230,6 +252,11 @@ h3 {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: white;
+    transition: color 0.4s ease;
+}
+
+.navbar.scrolled .mobile-menu-toggle {
     color: var(--primary-dark);
 }
 
@@ -254,36 +281,11 @@ h3 {
     z-index: -2;
 }
 
-.video-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100vw;
-    height: 100vh;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    overflow: hidden;
-}
-
-@media (min-aspect-ratio: 16/9) {
-    .video-container iframe {
-        width: 100vw;
-        height: 56.25vw;
-    }
-}
-
-@media (max-aspect-ratio: 16/9) {
-    .video-container iframe {
-        width: 177.78vh;
-        height: 100vh;
-    }
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
 }
 
 .hero-overlay {
@@ -356,6 +358,35 @@ h3 {
 .cert-item i {
     color: var(--accent-light);
     font-size: 1.2rem;
+}
+
+/* --- VIDEO SHOWCASE --- */
+.video-showcase {
+    background-color: var(--primary-dark);
+    color: white;
+}
+
+.video-showcase .section-header h2 {
+    color: white;
+}
+
+.video-showcase .section-header p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.video-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.video-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
 }
 
 /* --- VALUE PROP SECTION --- */

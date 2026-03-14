@@ -2,13 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = 'var(--shadow-md)';
-            navbar.style.padding = '0';
-        } else {
-            navbar.style.boxShadow = 'none';
-            navbar.style.padding = '5px 0';
-        }
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     // 2. Testimonial Slider
@@ -22,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
             author: "Satisfied Client"
         },
         {
+            text: "Skinner Lawns cares about customer satisfaction. Jeff is always happy to listen to any questions or requests.",
+            author: "Jacksonville Homeowner"
+        },
+        {
             text: "They provide high quality, professional service week in and week out. Always on time with extra attention to detail.",
             author: "Long-term Customer"
         },
@@ -30,8 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
             author: "Jacksonville Homeowner"
         },
         {
+            text: "My lawn has never looked better. Weekly service is always on time, consistent.",
+            author: "Residential Client"
+        },
+        {
+            text: "Did exactly what I asked for a messy backyard — exceeded expectations removing weeds, laying seed, and clearing debris.",
+            author: "Jacksonville Homeowner"
+        },
+        {
             text: "Consistent, considerate, very thorough, and friendly. Good communication about weather delays.",
             author: "Commercial Property Manager"
+        },
+        {
+            text: "Grateful for such a high quality service that's locally owned!",
+            author: "Northeast Florida Client"
         }
     ];
 
